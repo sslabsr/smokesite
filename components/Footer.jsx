@@ -4,7 +4,16 @@ const FooterCol = ({title, links, onClick}) => (
     <ul style={{listStyle:"none", padding:0, margin:0, display:"flex", flexDirection:"column", gap:10}}>
       {links.map(l=>(
         <li key={l.label}>
-          <a onClick={l.route && onClick ? ()=>onClick(l.route) : undefined} className="ssl-link" style={{color:"rgba(227,240,247,.85)", cursor:"pointer", fontSize:13}}>{l.label}</a>
+          <a
+            onClick={l.route && onClick ? ()=>onClick(l.route) : undefined}
+            className="ssl-link"
+            style={{
+              color:"rgba(227,240,247,.85)", cursor: l.route ? "pointer" : "default",
+              fontSize:13,
+            }}
+          >
+            {l.label}
+          </a>
         </li>
       ))}
     </ul>
@@ -22,7 +31,7 @@ const Footer = ({setRoute}) => {
           <div>
             <img src="assets/logo-neon-clean.png" alt="Smoke Show Labs" style={{height:48, marginBottom:18, filter:"drop-shadow(0 0 12px rgba(120,214,241,.35))"}}/>
             <p style={{fontSize:13, lineHeight:1.55, color:"rgba(227,240,247,.7)", maxWidth:380, margin:"0 0 22px"}}>
-              Brand development & manufacturing for operators launching their own line. Hardware, oils, terpenes, fill, packaging — shipped under your name.
+              Brand development &amp; manufacturing for operators launching their own line. Hardware, oils, terpenes, fill, packaging — shipped under your name.
             </p>
             <div style={{fontFamily:"var(--font-mono)", fontSize:10, letterSpacing:".2em", textTransform:"uppercase", color:"rgba(227,240,247,.5)", marginBottom:18}}>
               Subscribe — drop announcements, lab results, restock alerts.
@@ -35,18 +44,20 @@ const Footer = ({setRoute}) => {
             </form>
 
             <div style={{display:"flex", gap:16, marginTop:28}}>
-              <a aria-label="Instagram" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Instagram size={20}/></a>
-              <a aria-label="Email" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Mail size={20}/></a>
-              <a aria-label="Phone" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Phone size={20}/></a>
+              <a href="https://instagram.com/smokeshowlabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Instagram size={20}/></a>
+              <a href="mailto:info@smokeshowlabs.com" aria-label="Email" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Mail size={20}/></a>
+              <a href="tel:2139439000" aria-label="Phone" style={{color:"var(--color-fg)", lineHeight:0}}><Icons.Phone size={20}/></a>
             </div>
           </div>
 
           <FooterCol title="Company" onClick={go} links={[
             {label:"About",       route:"about"},
-            {label:"Floor tour",  route:"about"},
+            {label:"Gallery",     route:"gallery"},
+            {label:"Blog",        route:"blog"},
             {label:"Careers",     route:"contact"},
             {label:"Press kit",   route:"contact"},
           ]}/>
+
           <FooterCol title="Operators" onClick={go} links={[
             {label:"Services",         route:"services"},
             {label:"Wholesale",        route:"wholesale"},
@@ -54,12 +65,13 @@ const Footer = ({setRoute}) => {
             {label:"Spec sheets",      route:"contact"},
             {label:"Lab results",      route:"contact"},
           ]}/>
-          <FooterCol title="Legal" links={[
-            {label:"Terms & Conditions"},
-            {label:"Privacy Policy"},
-            {label:"Returns & Exchanges"},
-            {label:"Cookie Policy"},
-            {label:"Do Not Sell My Info (CCPA)"},
+
+          <FooterCol title="Legal" onClick={go} links={[
+            {label:"Terms & Conditions",        route:"terms"},
+            {label:"Privacy Policy",            route:"privacy"},
+            {label:"Shipping & Returns",        route:"shipping"},
+            {label:"FAQ",                       route:"faq"},
+            {label:"Do Not Sell My Info (CCPA)",route:"ccpa"},
           ]}/>
         </div>
 
@@ -69,8 +81,8 @@ const Footer = ({setRoute}) => {
           fontFamily:"var(--font-mono)", fontSize:10, letterSpacing:".22em", textTransform:"uppercase",
           color:"rgba(227,240,247,.5)"
         }}>
-          <span>© 2026 Smoke Show Labs · Los Angeles, CA</span>
-          <span>21+ Only · You must be of legal age in your jurisdiction · CCPA Compliant</span>
+          <span>© 2026 Smoke Show Labs · Los Angeles, CA · 1410 W. Olympic Blvd Suite B · 213-943-9000</span>
+          <span>21+ Only · Legal age required · CCPA Compliant</span>
         </div>
       </Container>
     </footer>

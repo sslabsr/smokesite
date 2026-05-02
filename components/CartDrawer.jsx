@@ -1,4 +1,4 @@
-const CartDrawer = ({open, onClose, items, removeItem, updateQty, isReseller}) => {
+const CartDrawer = ({open, onClose, items, removeItem, updateQty, isReseller, onCheckout}) => {
   if (!open) return null;
   const subtotal = items.reduce((s,i)=>s + (isReseller ? i.price*0.55 : i.price)*i.qty, 0);
   const totalUnits = items.reduce((s,i)=>s+i.qty, 0);
@@ -52,7 +52,13 @@ const CartDrawer = ({open, onClose, items, removeItem, updateQty, isReseller}) =
                 Wholesale MOQ · {1000-totalUnits} more units to unlock
               </div>
             )}
-            <Button as="button" disabled={isReseller && !moqMet} variant={isReseller ? "mustard" : "primary"} style={{justifyContent:"center", opacity: (isReseller && !moqMet) ? .5 : 1}}>
+            <Button
+              as="button"
+              disabled={isReseller && !moqMet}
+              variant={isReseller ? "mustard" : "primary"}
+              style={{justifyContent:"center", opacity: (isReseller && !moqMet) ? .5 : 1}}
+              onClick={() => { if (!(isReseller && !moqMet) && onCheckout) { onClose(); onCheckout(); } }}
+            >
               Checkout · ${subtotal.toFixed(2)} →
             </Button>
             <div style={{fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".22em", textTransform:"uppercase", color:"rgba(227,240,247,.45)", textAlign:"center"}}>

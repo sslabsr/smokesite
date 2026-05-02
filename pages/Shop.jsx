@@ -60,7 +60,7 @@ const ShopFilters = ({active, setActive, sort, setSort}) => (
   </div>
 );
 
-const Shop = ({addToCart, isAuthed, isReseller, onSignup}) => {
+const Shop = ({addToCart, isAuthed, isReseller, onSignup, openProduct}) => {
   const [cat, setCat] = React.useState("All");
   const [sort, setSort] = React.useState("featured");
   const filtered = PRODUCTS
@@ -83,7 +83,7 @@ const Shop = ({addToCart, isAuthed, isReseller, onSignup}) => {
         <Container>
           <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:20}}>
             {filtered.map(p => (
-              <ProductCard key={p.id} p={p} onAdd={()=>handleAdd(p)} isReseller={isReseller}/>
+              <ProductCard key={p.id} p={p} onAdd={()=>handleAdd(p)} isReseller={isReseller} onOpen={openProduct ? ()=>openProduct(p) : undefined}/>
             ))}
           </div>
           {filtered.length===0 && (
