@@ -90,7 +90,7 @@ const ServicesSnapshot = ({setRoute}) => (
   </Section>
 );
 
-const FeaturedProducts = ({setRoute, addToCart, isReseller}) => (
+const FeaturedProducts = ({setRoute, addToCart, isReseller, openProduct}) => (
   <Section bg="var(--color-bg-elev)" pad="120px 32px">
     <Container>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:48, flexWrap:"wrap", gap:16}}>
@@ -102,7 +102,7 @@ const FeaturedProducts = ({setRoute, addToCart, isReseller}) => (
       </div>
       <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:18}}>
         {PRODUCTS.slice(0,4).map(p => (
-          <ProductCard key={p.id} p={p} onAdd={()=>addToCart(p)} isReseller={isReseller} onOpen={()=>setRoute("shop")}/>
+          <ProductCard key={p.id} p={p} onAdd={()=>addToCart(p)} isReseller={isReseller} onOpen={() => openProduct ? openProduct(p) : setRoute("shop")}/>
         ))}
       </div>
     </Container>
@@ -170,12 +170,12 @@ const CTABlock = ({setRoute}) => (
   </Section>
 );
 
-const Home = ({setRoute, onSignup, addToCart, isReseller}) => (
+const Home = ({setRoute, onSignup, addToCart, isReseller, openProduct}) => (
   <>
     <HeroBlock setRoute={setRoute} onSignup={onSignup}/>
     <Marquee items={["HARDWARE","OIL FILLING","TERPENES","SNOWCAP","PACKAGING","CO-PACK","WHITE-LABEL","LA-MADE"]} color="var(--color-cyan)" speed={36}/>
     <ServicesSnapshot setRoute={setRoute}/>
-    <FeaturedProducts setRoute={setRoute} addToCart={addToCart} isReseller={isReseller}/>
+    <FeaturedProducts setRoute={setRoute} addToCart={addToCart} isReseller={isReseller} openProduct={openProduct}/>
     <ProcessBlock/>
     <SocialProofBlock/>
     <CTABlock setRoute={setRoute}/>
