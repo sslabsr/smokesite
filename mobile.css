@@ -1,0 +1,142 @@
+/* =============================================================
+   Smoke Show Labs — Mobile Responsive Overrides
+   Breakpoints: mobile ≤ 767px · tablet 768–1024px
+   Uses !important to override inline React styles safely.
+   ============================================================= */
+
+/* ---- Horizontal padding reduction on mobile ---- */
+@media (max-width: 767px) {
+
+  .r-px {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Reduce vertical padding for sections */
+  .r-py {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* Tighter vertical padding for hero sections */
+  .r-hero-py {
+    padding-top: 72px !important;
+    padding-bottom: 56px !important;
+  }
+
+  /* ---- Grid: stack to single column ---- */
+  .r-stack {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Reset child order + remove stray right borders when grids stack */
+  .r-stack > * {
+    order: unset !important;
+    border-right: 0 !important;
+  }
+
+  /* In 2-col grids, right column items should have no right border */
+  .r-2col > *:nth-child(even) {
+    border-right: 0 !important;
+  }
+
+  /* ---- Grid: collapse to 2 columns (product/card grids) ---- */
+  .r-2col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ---- Process block: horizontal scroll strip ---- */
+  .r-process {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-top: 2px solid var(--color-pink) !important;
+  }
+
+  .r-process > * {
+    min-width: 78vw !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    border-right: 1px solid rgba(236,142,190,.3) !important;
+  }
+
+  /* ---- Capability table rows: stack label + value ---- */
+  .r-cap-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 16px 20px !important;
+  }
+
+  /* ---- Flex rows → column (contact form, etc.) ---- */
+  .r-form-row {
+    flex-direction: column !important;
+  }
+
+  /* ---- Hide elements on mobile ---- */
+  .r-hide {
+    display: none !important;
+  }
+
+  /* ---- Footer: 2-col grid ---- */
+  .r-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Brand column spans full width in 2-col footer */
+  .r-footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* ---- Service lane: hide the decorative spec box on mobile ---- */
+  .r-service-box {
+    display: none !important;
+  }
+
+  /* ---- Floor tour / team: gap reduce ---- */
+  .r-gap-sm {
+    gap: 12px !important;
+  }
+
+  /* ---- Location bar in floor tour ---- */
+  .r-location-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* ---- Shop filters sticky bar ---- */
+  .r-filters-bar {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ---- Contact form padding ---- */
+  .r-form-pad {
+    padding: 24px 20px !important;
+  }
+
+  /* ---- Marquee: slightly smaller on mobile ---- */
+  .r-marquee-inner {
+    font-size: 22px !important;
+  }
+}
+
+/* ---- Tablet: 768–1024px ---- */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .r-2col-tablet {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .r-stack-tablet {
+    grid-template-columns: 1fr !important;
+  }
+
+  .r-px-tablet {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}

@@ -1,14 +1,14 @@
 // HOME — Hero · Marquee · Services snapshot · Featured products · Process · Stats · Social proof · CTA
 const HeroBlock = ({setRoute, onSignup}) => (
   <Section pad="0" bg="#000">
-    <div style={{position:"relative", overflow:"hidden", padding:"120px 32px 100px", borderBottom:"2px solid var(--color-pink)"}}>
+    <div className="r-px r-hero-py" style={{position:"relative", overflow:"hidden", padding:"120px 32px 100px", borderBottom:"2px solid var(--color-pink)"}}>
       {/* subtle smoke gradient bg */}
       <div style={{position:"absolute", inset:0, background:"radial-gradient(ellipse 80% 60% at 70% 30%, rgba(120,214,241,.08), transparent 60%), radial-gradient(ellipse 70% 50% at 20% 80%, rgba(255,45,180,.07), transparent 60%)", pointerEvents:"none"}}/>
       {/* grid lines */}
       <div style={{position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(227,240,247,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(227,240,247,.04) 1px, transparent 1px)", backgroundSize:"80px 80px", pointerEvents:"none"}}/>
 
       <Container style={{position:"relative"}}>
-        <div style={{display:"grid", gridTemplateColumns:"1fr auto", gap:48, alignItems:"end"}}>
+        <div className="r-stack" style={{display:"grid", gridTemplateColumns:"1fr auto", gap:48, alignItems:"end"}}>
           <div>
             <Eyebrow>LA · Co-Pack & Brand Dev · Est. 2001</Eyebrow>
             <Display as="h1" size="hero" style={{marginTop:24, marginBottom:24}}>
@@ -29,7 +29,7 @@ const HeroBlock = ({setRoute, onSignup}) => (
               <Stat value="48h" label="Spec sheet" color="var(--color-pink)"/>
             </div>
           </div>
-          <div style={{display:"flex", flexDirection:"column", gap:14, minWidth:260}}>
+          <div className="r-hide" style={{display:"flex", flexDirection:"column", gap:14, minWidth:260}}>
             <div style={{padding:"18px 20px", border:"1px solid var(--color-cyan)", background:"rgba(120,214,241,.04)"}}>
               <div style={{fontFamily:"var(--font-mono)", fontSize:10, letterSpacing:".22em", textTransform:"uppercase", color:"var(--color-cyan)", marginBottom:8}}>— Floor status</div>
               <div style={{display:"flex", alignItems:"center", gap:8, fontFamily:"var(--font-mono)", fontSize:13}}>
@@ -49,7 +49,7 @@ const HeroBlock = ({setRoute, onSignup}) => (
 );
 
 const ServicesSnapshot = ({setRoute}) => (
-  <Section bg="#000" pad="120px 32px">
+  <Section className="r-px r-py" bg="#000" pad="120px 32px">
     <Container>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:48, flexWrap:"wrap", gap:16}}>
         <div>
@@ -58,7 +58,7 @@ const ServicesSnapshot = ({setRoute}) => (
         </div>
         <Button variant="outlined" onClick={()=>setRoute("services")}>All services <Icons.ArrowRight size={16}/></Button>
       </div>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:0, border:"1px solid rgba(236,142,190,.3)"}}>
+      <div className="r-stack" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:0, border:"1px solid rgba(236,142,190,.3)"}}>
         {SERVICES.map((s, i) => {
           const Icon = Icons[s.icon] || Icons.Box;
           const accent = s.accent === "cyan" ? "var(--color-cyan)" : "var(--color-pink)";
@@ -91,7 +91,7 @@ const ServicesSnapshot = ({setRoute}) => (
 );
 
 const FeaturedProducts = ({setRoute, addToCart, isReseller, openProduct}) => (
-  <Section bg="var(--color-bg-elev)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="120px 32px">
     <Container>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:48, flexWrap:"wrap", gap:16}}>
         <div>
@@ -100,7 +100,7 @@ const FeaturedProducts = ({setRoute, addToCart, isReseller, openProduct}) => (
         </div>
         <Button variant="outlined-cyan" onClick={()=>setRoute("shop")}>Shop all <Icons.ArrowRight size={16}/></Button>
       </div>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:18}}>
+      <div className="r-2col" style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:18}}>
         {PRODUCTS.slice(0,4).map(p => (
           <ProductCard key={p.id} p={p} onAdd={()=>addToCart(p)} isReseller={isReseller} onOpen={() => openProduct ? openProduct(p) : setRoute("shop")}/>
         ))}
@@ -110,11 +110,11 @@ const FeaturedProducts = ({setRoute, addToCart, isReseller, openProduct}) => (
 );
 
 const ProcessBlock = () => (
-  <Section bg="#000" pad="120px 32px">
+  <Section className="r-px r-py" bg="#000" pad="120px 32px">
     <Container>
       <Eyebrow>How it runs · Brief to ship</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:60}}>Five steps,<br/>no surprises.</Display>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:0, borderTop:"2px solid var(--color-pink)"}}>
+      <div className="r-process" style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:0, borderTop:"2px solid var(--color-pink)"}}>
         {PROCESS.map((p, i) => (
           <div key={p.n} style={{
             padding:"28px 22px",
@@ -132,11 +132,11 @@ const ProcessBlock = () => (
 );
 
 const SocialProofBlock = () => (
-  <Section bg="var(--color-bg-elev)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="120px 32px">
     <Container>
       <Eyebrow>Operators we ship under</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>Brands you've<br/>seen on shelves.</Display>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:24}}>
+      <div className="r-stack" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:24}}>
         {SOCIAL_PROOF.map((s, i) => (
           <div key={i} style={{padding:"32px 28px", border:"1px solid var(--color-pink)", background:"#000", display:"flex", flexDirection:"column", gap:18, minHeight:240}}>
             <div style={{fontFamily:"var(--font-display)", fontSize:32, letterSpacing:"-.02em", color: i===1 ? "var(--color-cyan)" : "var(--color-fg)"}}>{s.brand}</div>
@@ -150,9 +150,9 @@ const SocialProofBlock = () => (
 );
 
 const CTABlock = ({setRoute}) => (
-  <Section bg="var(--color-pink)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-pink)" pad="120px 32px">
     <Container>
-      <div style={{display:"grid", gridTemplateColumns:"1.4fr 1fr", gap:48, alignItems:"center"}}>
+      <div className="r-stack" style={{display:"grid", gridTemplateColumns:"1.4fr 1fr", gap:48, alignItems:"center"}}>
         <Display as="h2" size="hero" color="#000" style={{fontSize:"clamp(56px, 9vw, 130px)"}}>
           Ready to<br/>build a line?
         </Display>

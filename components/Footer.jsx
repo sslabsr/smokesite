@@ -25,10 +25,10 @@ const Footer = ({setRoute}) => {
   const [email, setEmail] = React.useState("");
   const [subscribed, setSubscribed] = React.useState(false);
   return (
-    <footer style={{background:"#000", borderTop:"2px solid var(--color-pink)", padding:"64px 32px 28px", marginTop:0}}>
+    <footer className="r-px" style={{background:"#000", borderTop:"2px solid var(--color-pink)", padding:"64px 32px 28px", marginTop:0}}>
       <Container>
-        <div style={{display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:32, marginBottom:48}}>
-          <div>
+        <div className="r-footer-grid" style={{display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:32, marginBottom:48}}>
+          <div className="r-footer-brand">
             <img src="assets/logo-neon-clean.png" alt="Smoke Show Labs" style={{height:48, marginBottom:18, filter:"drop-shadow(0 0 12px rgba(120,214,241,.35))"}}/>
             <p style={{fontSize:13, lineHeight:1.55, color:"rgba(227,240,247,.7)", maxWidth:380, margin:"0 0 22px"}}>
               Brand development &amp; manufacturing for operators launching their own line. Hardware, oils, terpenes, fill, packaging — shipped under your name.

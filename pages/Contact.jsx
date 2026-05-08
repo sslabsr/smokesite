@@ -1,6 +1,6 @@
 // CONTACT — Lead form, channels, location card
 const ContactHero = () => (
-  <Section bg="#000" pad="120px 32px 60px">
+  <Section className="r-px r-hero-py" bg="#000" pad="120px 32px 60px">
     <Container>
       <Eyebrow>Contact · Brief us</Eyebrow>
       <Display as="h1" size="h1" style={{marginTop:24, marginBottom:24}}>
@@ -29,12 +29,12 @@ const ContactForm = () => {
     </div>
   );
   return (
-    <form onSubmit={submit} style={{display:"flex", flexDirection:"column", gap:24, padding:"40px 40px", border:"2px solid var(--color-pink)", background:"#000"}}>
-      <div style={{display:"flex", gap:18}}>
+    <form onSubmit={submit} className="r-form-pad" style={{display:"flex", flexDirection:"column", gap:24, padding:"40px 40px", border:"2px solid var(--color-pink)", background:"#000"}}>
+      <div className="r-form-row" style={{display:"flex", gap:18}}>
         <Input label="First name" placeholder="Alex" required/>
         <Input label="Last name" placeholder="Vega" required/>
       </div>
-      <div style={{display:"flex", gap:18}}>
+      <div className="r-form-row" style={{display:"flex", gap:18}}>
         <Input label="Email" type="email" placeholder="you@brand.co" required/>
         <Input label="Phone (optional)" placeholder="(213) 555-0100"/>
       </div>
@@ -57,7 +57,7 @@ const ContactForm = () => {
           })}
         </div>
       </div>
-      <div style={{display:"flex", gap:18}}>
+      <div className="r-form-row" style={{display:"flex", gap:18}}>
         <Select label="Estimated volume" options={["—","1k–4,999 units","5k–24,999 units","25k+ units"]}/>
         <Select label="Timing" options={["—","Now / urgent","30 days","60–90 days","Just exploring"]}/>
       </div>
@@ -96,9 +96,9 @@ const ContactChannels = () => (
 const Contact = () => (
   <>
     <ContactHero/>
-    <Section bg="#000" pad="20px 32px 120px">
+    <Section className="r-px r-py" bg="#000" pad="20px 32px 120px">
       <Container>
-        <div style={{display:"grid", gridTemplateColumns:"1.4fr 1fr", gap:40}}>
+        <div className="r-stack" style={{display:"grid", gridTemplateColumns:"1.4fr 1fr", gap:40}}>
           <ContactForm/>
           <ContactChannels/>
         </div>

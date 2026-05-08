@@ -1,6 +1,6 @@
 // SHOP — Storefront with category filter, locked state for non-authed users
 const ShopHero = ({isAuthed, isReseller, onSignup}) => (
-  <Section bg="#000" pad="100px 32px 60px">
+  <Section className="r-px r-hero-py" bg="#000" pad="100px 32px 60px">
     <Container>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-end", flexWrap:"wrap", gap:24}}>
         <div>
@@ -28,7 +28,7 @@ const ShopHero = ({isAuthed, isReseller, onSignup}) => (
 );
 
 const ShopFilters = ({active, setActive, sort, setSort}) => (
-  <div style={{borderTop:"1px solid var(--color-pink)", borderBottom:"1px solid var(--color-pink)", padding:"14px 32px", background:"#000", position:"sticky", top:64, zIndex:50, backdropFilter:"blur(10px)"}}>
+  <div className="r-filters-bar" style={{borderTop:"1px solid var(--color-pink)", borderBottom:"1px solid var(--color-pink)", padding:"14px 32px", background:"#000", position:"sticky", top:64, zIndex:50, backdropFilter:"blur(10px)"}}>
     <Container>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", gap:16, flexWrap:"wrap"}}>
         <div style={{display:"flex", gap:6, flexWrap:"wrap"}}>
@@ -79,9 +79,9 @@ const Shop = ({addToCart, isAuthed, isReseller, onSignup, openProduct}) => {
     <>
       <ShopHero isAuthed={isAuthed} isReseller={isReseller} onSignup={onSignup}/>
       <ShopFilters active={cat} setActive={setCat} sort={sort} setSort={setSort}/>
-      <Section bg="#000" pad="48px 32px 120px">
+      <Section className="r-px" bg="#000" pad="48px 32px 120px">
         <Container>
-          <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:20}}>
+          <div className="r-2col" style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:20}}>
             {filtered.map(p => (
               <ProductCard key={p.id} p={p} onAdd={()=>handleAdd(p)} isReseller={isReseller} onOpen={openProduct ? ()=>openProduct(p) : undefined}/>
             ))}

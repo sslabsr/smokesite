@@ -10,7 +10,7 @@ const GalleryPage = ({setRoute, addToCart, isReseller, openProduct}) => (
 );
 
 const GalleryHero = () => (
-  <Section bg="#000" pad="120px 32px 80px">
+  <Section className="r-px r-hero-py" bg="#000" pad="120px 32px 80px">
     <Container>
       <Eyebrow>Gallery · The Lab in Motion</Eyebrow>
       <Display as="h1" size="h1" style={{marginTop:24, marginBottom:24, maxWidth:1000}}>
@@ -25,7 +25,7 @@ const GalleryHero = () => (
 );
 
 const FloorGallery = () => (
-  <Section bg="var(--color-bg-elev)" pad="80px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="80px 32px">
     <Container>
       <Eyebrow style={{marginBottom:14}}>Floor Tour · 9 stations</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>Inside the Floor.</Display>
@@ -115,7 +115,7 @@ const ProductShowcase = ({setRoute, addToCart, isReseller, openProduct}) => {
     return () => window.removeEventListener("resize", h);
   }, []);
   return (
-  <Section bg="#000" pad="80px 32px">
+  <Section className="r-px r-py" bg="#000" pad="80px 32px">
     <Container>
       <Eyebrow>Product Catalog · All SKUs</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:16}}>The Lineup.</Display>
@@ -170,7 +170,7 @@ const ProductShowcase = ({setRoute, addToCart, isReseller, openProduct}) => {
               </div>
 
               {/* Info panel */}
-              <div style={{
+              <div className="r-px" style={{
                 order: reverse ? 1 : 2,
                 padding:"48px 56px",
                 display:"flex", flexDirection:"column", justifyContent:"center", gap:20,
@@ -242,7 +242,7 @@ const ProductShowcase = ({setRoute, addToCart, isReseller, openProduct}) => {
 };
 
 const BrandPartners = () => (
-  <Section bg="var(--color-bg-elev)" pad="80px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="80px 32px">
     <Container>
       <Eyebrow>Brand Partners · In the Market</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>Who We Build For.</Display>
@@ -292,7 +292,7 @@ const BrandPartners = () => (
 );
 
 const GalleryCTA = ({setRoute}) => (
-  <Section bg="var(--color-pink)" pad="100px 32px">
+  <Section className="r-px r-py" bg="var(--color-pink)" pad="100px 32px">
     <Container>
       <div style={{maxWidth:800}}>
         <Display as="h2" size="h2" color="#000" style={{marginBottom:24}}>

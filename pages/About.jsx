@@ -1,6 +1,6 @@
 // ABOUT — Story, Floor, Team, Values
 const AboutHero = () => (
-  <Section bg="#000" pad="120px 32px 80px">
+  <Section className="r-px r-hero-py" bg="#000" pad="120px 32px 80px">
     <Container>
       <Eyebrow>About · Smoke Show Labs · Est. 2001</Eyebrow>
       <Display as="h1" size="h1" style={{marginTop:24, marginBottom:24, maxWidth:1200}}>
@@ -15,9 +15,9 @@ const AboutHero = () => (
 );
 
 const StoryBlock = () => (
-  <Section bg="var(--color-bg-elev)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="120px 32px">
     <Container>
-      <div style={{display:"grid", gridTemplateColumns:"1fr 1.2fr", gap:80, alignItems:"start"}}>
+      <div className="r-stack" style={{display:"grid", gridTemplateColumns:"1fr 1.2fr", gap:80, alignItems:"start"}}>
         <div>
           <Eyebrow>The story</Eyebrow>
           <Display as="h2" size="h2" style={{marginTop:14}}>Built by operators,<br/>for operators.</Display>
@@ -34,11 +34,11 @@ const StoryBlock = () => (
 );
 
 const FloorTour = () => (
-  <Section bg="#000" pad="120px 32px">
+  <Section className="r-px r-py" bg="#000" pad="120px 32px">
     <Container>
       <Eyebrow color="var(--color-cyan)">The floor · Downtown LA</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>What you'd see<br/>walking in.</Display>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:0, border:"1px solid var(--color-pink)"}}>
+      <div className="r-2col" style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:0, border:"1px solid var(--color-pink)"}}>
         {[
           {n:"01", t:"Receiving",     b:"Hardware QA, oil intake, packaging stock. Everything tagged with batch ID before it touches a line."},
           {n:"02", t:"Lab",           b:"Potency, residual solvents, pesticides, terpenes. ISO-7 clean room. Every batch tested before fill."},
@@ -61,7 +61,7 @@ const FloorTour = () => (
           </div>
         ))}
       </div>
-      <div style={{marginTop:32, padding:"22px 28px", border:"1px solid var(--color-cyan)", background:"rgba(120,214,241,.04)", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:16}}>
+      <div className="r-location-bar" style={{marginTop:32, padding:"22px 28px", border:"1px solid var(--color-cyan)", background:"rgba(120,214,241,.04)", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:16}}>
         <div style={{display:"flex", alignItems:"center", gap:14}}>
           <span style={{color:"var(--color-cyan)"}}><Icons.Pin size={20}/></span>
           <span style={{fontFamily:"var(--font-mono)", fontSize:13, color:"var(--color-fg)"}}>Floor tours by appointment · 1234 Industrial Way · LA, CA 90021</span>
@@ -73,11 +73,11 @@ const FloorTour = () => (
 );
 
 const TeamBlock = () => (
-  <Section bg="var(--color-bg-elev)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="120px 32px">
     <Container>
       <Eyebrow>The crew</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>People you'll<br/>actually talk to.</Display>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:18}}>
+      <div className="r-2col" style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:18}}>
         {TEAM.map((t, i) => (
           <div key={t.name} style={{
             background:"#000", border:"1px solid var(--color-pink)",
@@ -103,13 +103,13 @@ const TeamBlock = () => (
 );
 
 const ValuesBlock = () => (
-  <Section bg="var(--color-cyan)" pad="120px 32px">
+  <Section className="r-px r-py" bg="var(--color-cyan)" pad="120px 32px">
     <Container>
       <Eyebrow color="#000">— What we believe</Eyebrow>
       <Display as="h2" size="hero" color="#000" style={{marginTop:14, fontSize:"clamp(56px, 9vw, 130px)"}}>
         Show up.<br/>Ship clean.<br/>Stay quiet.
       </Display>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:32, marginTop:60, color:"#000"}}>
+      <div className="r-stack" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:32, marginTop:60, color:"#000"}}>
         {[
           {n:"01", t:"Show up.",   b:"On the floor every day. Same crew, same building, since 2001. Phone number is a real number."},
           {n:"02", t:"Ship clean.", b:"Lab COAs every batch. Tracked shipping. Tamper-evident. Compliance checked per market."},
