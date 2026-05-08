@@ -1,6 +1,6 @@
 // SERVICES — Detailed lanes with bullets, process, capability table, FAQ, CTA
 const ServicesHero = () => (
-  <Section bg="#000" pad="120px 32px 80px">
+  <Section className="r-px r-hero-py" bg="#000" pad="120px 32px 80px">
     <Container>
       <Eyebrow>Services · Six lanes</Eyebrow>
       <Display as="h1" size="h1" style={{marginTop:24, marginBottom:24, maxWidth:1100}}>
@@ -19,12 +19,12 @@ const ServiceLane = ({s, i}) => {
   const accent = s.accent === "cyan" ? "var(--color-cyan)" : "var(--color-pink)";
   const reverse = i % 2 === 1;
   return (
-    <div id={s.id} style={{
+    <div id={s.id} className="r-px r-py" style={{
       padding:"100px 32px", borderTop:"1px solid rgba(236,142,190,.3)",
       background: reverse ? "var(--color-bg-elev)" : "#000"
     }}>
       <Container>
-        <div style={{display:"grid", gridTemplateColumns: reverse ? "1fr 1.2fr" : "1.2fr 1fr", gap:64, alignItems:"start"}}>
+        <div className="r-stack" style={{display:"grid", gridTemplateColumns: reverse ? "1fr 1.2fr" : "1.2fr 1fr", gap:64, alignItems:"start"}}>
           <div style={{order: reverse ? 2 : 1}}>
             <div style={{display:"flex", gap:18, alignItems:"center", marginBottom:18}}>
               <span style={{fontFamily:"var(--font-display)", fontSize:64, color:accent, lineHeight:1, letterSpacing:"-.03em"}}>{s.num}</span>
@@ -41,7 +41,7 @@ const ServiceLane = ({s, i}) => {
               ))}
             </ul>
           </div>
-          <div style={{order: reverse ? 1 : 2}}>
+          <div className="r-service-box" style={{order: reverse ? 1 : 2}}>
             <div style={{
               aspectRatio:"1/1", border:`1px solid ${accent}`, padding:32,
               background:`radial-gradient(ellipse at 50% 30%, ${accent}22, rgba(0,0,0,0) 65%), #0a0a0a`,
@@ -68,7 +68,7 @@ const ServiceLane = ({s, i}) => {
 };
 
 const CapabilityTable = () => (
-  <Section bg="#000" pad="120px 32px">
+  <Section className="r-px r-py" bg="#000" pad="120px 32px">
     <Container>
       <Eyebrow>Capability sheet · At a glance</Eyebrow>
       <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>What we run.</Display>
@@ -83,7 +83,7 @@ const CapabilityTable = () => (
           ["Fulfillment",           "Direct-to-shop · DTC · 3PL handoff · tracked shipping"],
           ["Compliance markets",    "All 50 US states for compliant SKUs · International by request"],
         ].map(([k,v], i) => (
-          <div key={k} style={{
+          <div key={k} className="r-cap-row" style={{
             display:"grid", gridTemplateColumns:"260px 1fr", gap:32, padding:"20px 28px",
             borderBottom: i<7 ? "1px dashed rgba(236,142,190,.3)" : 0,
             alignItems:"center"
@@ -100,7 +100,7 @@ const CapabilityTable = () => (
 const FAQBlock = () => {
   const [open, setOpen] = React.useState(0);
   return (
-    <Section bg="var(--color-bg-elev)" pad="120px 32px">
+    <Section className="r-px r-py" bg="var(--color-bg-elev)" pad="120px 32px">
       <Container maxWidth={960}>
         <Eyebrow>Common questions</Eyebrow>
         <Display as="h2" size="h2" style={{marginTop:14, marginBottom:48}}>FAQ.</Display>
